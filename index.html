@@ -114,7 +114,38 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            // Update both countdowns
-            document.getElementById("days-supernova").textContent = days;
-            document.getElementById("hours-supernova").textContent = hours;
-            document.getElementById("minutes-supernova").textContent = 
+            // Ensure all elements exist before updating
+            if (document.getElementById("days-supernova")) {
+                document.getElementById("days-supernova").textContent = days;
+                document.getElementById("hours-supernova").textContent = hours;
+                document.getElementById("minutes-supernova").textContent = minutes;
+                document.getElementById("seconds-supernova").textContent = seconds;
+                document.getElementById("countdown-supernova").textContent = `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+            }
+
+            if (document.getElementById("days-cband")) {
+                document.getElementById("days-cband").textContent = days;
+                document.getElementById("hours-cband").textContent = hours;
+                document.getElementById("minutes-cband").textContent = minutes;
+                document.getElementById("seconds-cband").textContent = seconds;
+                document.getElementById("countdown-cband").textContent = `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+            }
+
+            // If countdown is over, display "Event has started!"
+            if (timeLeft < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown-supernova").textContent = "The event has started!";
+                document.getElementById("countdown-cband").textContent = "The event has started!";
+                document.querySelectorAll(".timer").forEach(timer => timer.style.display = "none");
+            }
+        }
+
+        // Update the countdown every second
+        const countdown = setInterval(updateCountdown, 1000);
+
+        // Run the function immediately to prevent delay
+        updateCountdown();
+    </script>
+
+</body>
+</html>
