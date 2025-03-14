@@ -13,7 +13,16 @@
             flex-direction: column;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4; /* Plain light gray background */
+            background-color: #f4f4f4;
+        }
+
+        /* Logo Styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 200px; /* Adjust size as needed */
         }
 
         .countdown {
@@ -23,6 +32,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
         }
 
         .countdown h1 {
@@ -51,6 +61,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Add the Logo Above the Timer -->
+    <img src="https://github.com/ivoong8/SuperNova/blob/main/HIEFO_no%20slogan.png?raw=true" alt="Company Logo" class="logo"> 
 
     <div class="countdown">
         <h1>Countdown for Super NOVA (IMDD) V2.1 V2.1B and V3.1 data</h1>
